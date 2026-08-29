@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('git clone') {
+            steps {
+                git branch: 'main', url: 'https://github.com/sandy976336/javasession.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'javac helloworld.java'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                sh 'java helloworld'
+'''
+            }
+        }
+    }
+}
